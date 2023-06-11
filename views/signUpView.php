@@ -2,7 +2,7 @@
 require_once './views/partials/header.php';
 ?>
 
-<section class="main">
+<section class="main" style="margin-top: 68px;">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-7 col-md-12 d-flex align-items-center">
@@ -13,20 +13,21 @@ require_once './views/partials/header.php';
             </div>
             <div class="col-lg-5 col-md-10 col-sm-12">
                 <div class="form-box px-5 py-4">
-                    <form action="">
+                    <form action="" method="POST">
+                        <!-- ajouter labels -->
                         <h2 class="text-center mb-4">Créer un compte</h2>
-                        <input type="text" name="" placeholder="Nom" class="form-control mb-3">
-                        <input type="text" name="" placeholder="Pseudo" class="form-control mb-3">
-                        <input type="number" name="" placeholder="Age" class="form-control mb-3">
-                        <input type="email" name="" placeholder="Email" class="form-control mb-3">
+                        <input type="text" name="name" placeholder="Nom" class="form-control mb-3">
+                        <input type="text" name="pseudo" placeholder="Pseudo" class="form-control mb-3">
+                        <input type="number" name="age" placeholder="Age" class="form-control mb-3">
+                        <input type="email" name="mail" placeholder="Email" class="form-control mb-3">
                         <div class="input-group mb-3">
-                            <input type="password" name="" id="password" placeholder="*******" class="form-control border-end-0 ">
+                            <input type="password" name="password" id="password" placeholder="*******" class="form-control border-end-0 ">
                             <span class="input-group-text bg-white border-start-0"><i class="fa-solid fa-eye"></i></span>
                         </div>
                         <div class="mb-3">
-                            <input type="checkbox" name="" id="terms"><label><small class="ms-3"> En m'inscrivant, j'accepte les conditions d'utilisation</small></label>
+                            <input type="checkbox" name="" id="terms" required><label><small class="ms-3"> En m'inscrivant, j'accepte les conditions d'utilisation</small></label>
                         </div>
-                        <button class="register-btn form-control mb-3">S'inscrire</button>
+                        <button type="submit" class="register-btn form-control mb-3">S'inscrire</button>
                         <p class="text-center">Déjà membre ? <a href="./login.php" class="link">Se connecter</a></p>
                     </form>
                 </div>
@@ -37,4 +38,7 @@ require_once './views/partials/header.php';
 
 <?php
 require_once './views/partials/footer.php';
+
+
+
 ?>

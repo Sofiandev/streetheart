@@ -1,55 +1,69 @@
 <?php
 require_once "./views/partials/header.php";
 require_once "./views/partials/navigation.php";
-?>
 
-<header>
-<h1 class="text-center m-5">Les murs ont des histoires à raconter - Streetheart vous les fait découvrir</h1>
 
-<div id="carouselExampleIndicators" class="carousel slide">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-</div>
-<div class="carousel-inner">
-    <div class="carousel-item active">
-        <img src="./public/img/rio-de-janeiro-1.jpg" class="d-block w-75" alt="...">
+if (isset($alertMessage) && isset($alertType)) { ?>
+    <div class=" mt-3 alert alert-<?php echo $alertType; ?>" role="alert">
+        <?php echo $alertMessage; ?>
     </div>
-    <div class="carousel-item">
-        <img src="./public/img/tiger.jpg" class="d-block w-75" alt="...">
+<?php } ?>
+
+<div class="carousel slide" data-bs-ride="carousel" id="carouselExampleIndicators" style="margin-top: 68px;">
+    <div class="carousel-indicators">
+        <button aria-label="Slide 1" class="active" data-bs-slide-to="0" data-bs-target="#carouselExampleIndicators" type="button"></button> <button aria-label="Slide 2" data-bs-slide-to="1" data-bs-target="#carouselExampleIndicators" type="button"></button> <button aria-label="Slide 3" data-bs-slide-to="2" data-bs-target="#carouselExampleIndicators" type="button"></button>
     </div>
-    <div class="carousel-item">
-        <img src="./public/img/Bansky_3.jpg" class="d-block w-75" alt="...">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-</button>
-</div>
-</header>
-<section id="homepage" class="pt-2">
-    
-    <div class="container mt-5">
-        <div class="row">
-            <?php foreach($posts as $post) { ?>
-                <div class="card col-12 col-md-4 col-lg-3">
-                    <img src="assets/uploads/<?php echo $post->getPicture() ?>" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title"><?php echo $post->getTitle() ?></h5>
-                        <a href="single.php?id=<?php echo $post->getIdPost() ?>" class="btn btn-primary">Voir l'article</a>
-                    </div>
-                </div>
-            <?php } ?> 
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img alt="..." class="d-block w-100 h-auto" src="./public/img/carrousel2.jpg">
+            <div class="carousel-caption">
+                <h5 class="animated bounceInRight" style="animation-delay: 1s">Les murs ont des histoires à raconter</h5>
+                <h6 class="animated bounceInLeft d-none d-md-block" style="animation-delay: 2s">Streetheart vous les fait découvrir</h6>
+                <p class="animated bounceInRight" style="animation-delay: 3s"><a href="#" class="btn btn-warning">Voir plus</a></p>
+            </div>
         </div>
-    </div>
-</section>
+        <div class="carousel-item">
+            <img alt="..." class="d-block w-100 h-auto" src="./public/img/ashim-d-silva.jpg">
+            <div class="carousel-caption">
+                <h5 class="animated bounceInRight" style="animation-delay: 1s">Plongez dans l'univers créatif</h5>
+                <p class="animated bounceInLeft d-none d-md-block" style="animation-delay: 2s">Explorez la beauté de l'art urbain avec Streetheart.</p>
+                <p class="animated bounceInRight" style="animation-delay: 3s"><a href="#">Voir plus</a></p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img alt="..." class="d-block w-100 h-auto" src="./public/img/bogota1.jpg">
+            <div class="carousel-caption">
+                <h5 class="animated bounceInRight" style="animation-delay: 1s">Apprentissage d'un art</h5>
+                <p class="animated bounceInLeft d-none d-md-block" style="animation-delay: 2s">Découvrez les techniques uniques à travers le monde </p>
+                <p class="animated bounceInRight" style="animation-delay: 3s"><a href="#">Voir plus</a></p>
+            </div>
+        </div>
+    </div><button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#carouselExampleIndicators" type="button"><span aria-hidden="true" class="carousel-control-prev-icon"></span> <span class="visually-hidden">Previous</span></button> <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#carouselExampleIndicators" type="button"><span aria-hidden="true" class="carousel-control-next-icon"></span> <span class="visually-hidden">Next</span></button>
+</div>
+<h1 class="text-center m-5 text-light">Découvrez les derniers articles pour en prendre pleins les yeux !</h1>
 
+<div class="bloc-container">
+    <?php foreach ($posts as $post) { ?>
+        <div class="bloc-card">
+            <div class="card__header inner">
+                <img src="./public/img/articles/<?= $post->getPicture() ?>" alt="<?= "photo" . $post->getTitle() ?>" class=" bloc-img card__image" width="600" height="200">
+            </div>
+            <div class="card__body">
+                <h4><?= $post->getTitle() ?></h4>
+                <p><?= $post->getResume() ?></p>
+            </div>
+            <div class="card__footer">
+                <div class="user">
+                    <div class="user__info">
+                        <span><?php echo date_format(date_create($post->getDatetime()), 'd-m-Y H:i'); ?></span>
+                    </div>
+                    <a href="single.php?id=<?= $post->getIdPost() ?>" class="btn register-btn text-center ms-3">Voir l'article</a>
+                </div>
+            </div>
+        </div>
+    <?php } ?>
+
+</div>
 <?php
 require_once "./views/partials/footer.php";
 ?>

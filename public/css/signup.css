@@ -1,0 +1,70 @@
+/* Forms*/
+
+.main {
+  background-image: url("../../public/img/bg2.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 75px 2px;
+}
+
+.form-box {
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(30px);
+  border-radius: 20px;
+  border: 1px solid white;
+}
+
+.form-box input {
+  border-radius: 10px;
+}
+.form-box input:focus {
+  box-shadow: 0 0 0;
+  border: 1px solid #f6288c;
+}
+.input-group-text {
+  border-radius: 0px 10px 10px 0;
+}
+.input-group-text:focus {
+  box-shadow: 0 0 0;
+  border: 1px solid #f6288c;
+}
+
+.register-btn {
+  background-image: linear-gradient(to right, #62118b, #f80f88, #f80f88);
+  border: none;
+  border-radius: 10px;
+  color: white;
+}
+
+.link {
+  text-decoration: none;
+  color: #63118b;
+}
+
+.link:hover {
+  color: #f80f88;
+}
+
+.text h1 {
+  font-size: 60px;
+}
+
+@media screen and (max-width: 992px) {
+  .text {
+    margin-bottom: 40px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .form-box {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+  .text h1 {
+    font-size: 40px;
+  }
+  .text h2 {
+    font-size: 20px;
+  }
+}

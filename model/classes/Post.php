@@ -5,6 +5,7 @@ class Post
 
     private $id_post;
     private $title;
+    private $resume;
     private $content;
     private $picture;
     private $adress;
@@ -34,6 +35,15 @@ class Post
     public function setTitle($title)
     {
         $this->title = $title;
+    }
+
+    public function getResume()
+    {
+        return $this->resume;
+    }
+    public function setResume($resume)
+    {
+        $this->resume = $resume;
     }
 
     public function getContent()
