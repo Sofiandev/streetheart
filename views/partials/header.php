@@ -48,7 +48,7 @@
                                 Mon compte
                             </a>
                             <ul class="dropdown-menu dropdown-menu-dark bg-dark">
-                                <li><a class="dropdown-item" href="logout.php">Se déconnecter</a></li>
+                                <li><a class="dropdown-item" href="logout.php?message=deconnexion-reussie">Se déconnecter</a></li>
                                 <li><a class="dropdown-item" href="addpost.php">Ecrire un article</a></li>
                                 <li><a class="dropdown-item" href="addcategory.php">Ajouter une catégorie</a></li>
                             </ul>

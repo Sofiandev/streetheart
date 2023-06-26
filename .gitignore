@@ -1,2 +1,3 @@
 model/DBConnect.php
 public/img
+vendor

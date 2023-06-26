@@ -6,17 +6,17 @@ $categories = CategoryManager::getAllCategories();
 
 // //On vérifie si le formulaire a été envoyé 
 
-// if (!empty($_POST)) {
-//     //le formulaire a été envoyé
-//     //On vérifie que TOUS les champs requis sont remplis
+if (!empty($_POST)) {
+    //le formulaire a été envoyé
+    //On vérifie que TOUS les champs requis sont remplis
 
-//     if (isset($_POST['mail'], $_POST['password']) && !empty($_POST['mail']) && !empty($_POST['password'])) {
-//         //onvérifie que l'email est un email
-//         if (!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
-//             die("ce n'est pas un email");
-//         }
-//     }
-// }
+    if (isset($_POST['mail'], $_POST['password']) && !empty($_POST['mail']) && !empty($_POST['password'])) {
+        //on vérifie que l'email est un email
+        if (!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
+            die("ce n'est pas un email");
+        }
+    }
+}
 
 //reception des données du formulaire
 
@@ -32,17 +32,25 @@ if (isset($_POST) && !empty($_POST)) {
     } else {
         // Récupération des données de l'utilisateur via une valeur unique telle que le mail
         $user = UserManager::getUserBymail($mail);
-        // Vérification de la correspondance du mot de passe en base de données avec celui saisi par l'utilisateur
-        $verified_user = password_verify($password, $user->getPassword());
-        if ($verified_user) {
-            UserManager::connectUser($user);
-            // Afficher un message de succès dans une alerte Bootstrap
-            $alertMessage = "Vous êtes bien connecté";
-            $alertType = "success";
-            // Rediriger vers la page d'accueil ou une autre page appropriée
-            header('location:index.php');
-            exit;
+        if ($user !== false) {
+            // Vérification de la correspondance du mot de passe en base de données avec celui saisi par l'utilisateur
+            $verified_user = password_verify($password, $user->getPassword());
+            if ($verified_user) {
+                UserManager::connectUser($user);
+                $_SESSION['connected'] = true;
+                // Afficher un message de succès dans une alerte Bootstrap
+                $alertMessage = "Vous êtes bien connecté";
+                $alertType = "success";
+                // Rediriger vers la page d'accueil ou une autre page appropriée
+                header('location:index.php');
+                exit; // Terminer l'exécution du script après la redirection
+            } else {
+                // Afficher un message d'erreur dans une alerte Bootstrap
+                $alertMessage = "Email ou mot de passe incorrect";
+                $alertType = "danger";
+            }
         } else {
+            // L'utilisateur n'a pas été trouvé
             // Afficher un message d'erreur dans une alerte Bootstrap
             $alertMessage = "Email ou mot de passe incorrect";
             $alertType = "danger";

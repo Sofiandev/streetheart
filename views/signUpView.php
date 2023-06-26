@@ -7,16 +7,15 @@ require_once './views/partials/header.php';
         <div class="row justify-content-center">
             <div class="col-lg-7 col-md-12 d-flex align-items-center">
                 <div class="text text-center">
-                    <h1 class="text-white">Create Your Best Experiences</h1>
-                    <h2 class="text-white">By Becoming a part of company family</h2>
+                    <h1 class="text-white">Créez des expériences exceptionnelles</h1>
+                    <h2 class="text-white">En devenant membre de StreetHeart</h2>
                 </div>
             </div>
             <div class="col-lg-5 col-md-10 col-sm-12">
                 <div class="form-box px-5 py-4">
                     <form action="" method="POST">
-                        <!-- ajouter labels -->
                         <h2 class="text-center mb-4">Créer un compte</h2>
-                        <input type="text" name="name" placeholder="Nom" class="form-control mb-3">
+                        <input type="text" name="name" id="name" placeholder="Nom" class="form-control mb-3">
                         <input type="text" name="pseudo" placeholder="Pseudo" class="form-control mb-3">
                         <input type="number" name="age" placeholder="Age" class="form-control mb-3">
                         <input type="email" name="mail" placeholder="Email" class="form-control mb-3">
@@ -38,7 +37,5 @@ require_once './views/partials/header.php';
 
 <?php
 require_once './views/partials/footer.php';
-
-
 
 ?>

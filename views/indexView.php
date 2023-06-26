@@ -2,14 +2,34 @@
 require_once "./views/partials/header.php";
 require_once "./views/partials/navigation.php";
 
-
-if (isset($alertMessage) && isset($alertType)) { ?>
-    <div class=" mt-3 alert alert-<?php echo $alertType; ?>" role="alert">
-        <?php echo $alertMessage; ?>
+// Vérification du paramètre GET "message"
+if (isset($_GET['message']) && $_GET['message'] === 'inscription-reussie') {
+    // Afficher l'alerte de succès pour l'inscription réussie
+    ?>
+    <div class="alert alert-success mt-5 alert-overlay" role="alert">
+        Inscription réussie.
     </div>
-<?php } ?>
+    <?php
+} elseif (isset($_GET['message']) && $_GET['message'] === 'deconnexion-reussie') {
+    // Afficher l'alerte de succès pour la déconnexion réussie
+    ?>
+    <div class="alert alert-success mt-5 alert-overlay" role="alert">
+        Déconnexion réussie.
+    </div>
+    <?php
+}
 
-<div class="carousel slide" data-bs-ride="carousel" id="carouselExampleIndicators" style="margin-top: 68px;">
+if (isset($_SESSION['connected']) && $_SESSION['connected'] === true) {
+    // Afficher l'alerte pour l'utilisateur connecté
+    ?>
+    <div class="alert alert-success mt-5 alert-overlay" role="alert">
+        Vous êtes bien connecté.
+    </div>
+    <?php
+    unset($_SESSION['connected']);
+}
+?>
+<div class="carousel slide position-relative" data-bs-ride="carousel" id="carouselExampleIndicators" style="margin-top: 68px;">
     <div class="carousel-indicators">
         <button aria-label="Slide 1" class="active" data-bs-slide-to="0" data-bs-target="#carouselExampleIndicators" type="button"></button> <button aria-label="Slide 2" data-bs-slide-to="1" data-bs-target="#carouselExampleIndicators" type="button"></button> <button aria-label="Slide 3" data-bs-slide-to="2" data-bs-target="#carouselExampleIndicators" type="button"></button>
     </div>

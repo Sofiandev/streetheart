@@ -55,7 +55,7 @@ require_once './views/partials/navigation.php';
 </section>
 
 <?php
-var_dump($_SESSION['user']);
+// var_dump($_SESSION['user']);
 require_once "./views/partials/footer.php";
 
 

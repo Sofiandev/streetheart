@@ -128,6 +128,8 @@ body {
 /********* NAVBAR *********/
 .navbar {
   opacity: 0.8;
+  top: 0;
+  transition: 0.5s ease;
 }
 .navbar-brand img {
   width: 60px;
@@ -208,7 +210,7 @@ body {
 
 @media only screen and (max-width: 767px) {
   .carousel-caption {
-    bottom: 165px;
+    bottom: 20px;
   }
   .carousel-caption h5 {
     font-size: 17px;
@@ -224,4 +226,13 @@ footer {
   bottom: 0; /* on le colle en bas */
   width: 100%;
   height: 100px; /* Hauteur du pied de page */
+}
+
+.alert-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  margin-top: 100px;
 }

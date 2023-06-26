@@ -12,7 +12,6 @@ class User
 
 
     //Getters & Setters
-
     public function getIdUser()
     {
         return  $this->id_user;

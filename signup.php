@@ -39,7 +39,8 @@ if (isset($_POST) && !empty($_POST)) {
         //on enregistre en base de données
         //transmission à une méthode du manager pour enregistrer en bdd
         UserManager::addUser($name, $pseudo, $age, $mail, $pass);
-        header("Location: index.php");
+        // Redirection vers la page index avec un message d'alerte
+header("Location: index.php?message=inscription-reussie");
 exit();
     } else {
         //on gérera la gestion du formulaire avec le fait de garder les données plus tard
